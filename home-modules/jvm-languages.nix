@@ -3,10 +3,11 @@
 { config, pkgs, ... }:
 {
   home.packages = with pkgs; [
+    jdk
     (leiningen.override { jdk = pkgs.jdk11; })
     (clojure.override { jdk = pkgs.jdk11; })
-    (scala_3.override { jre = pkgs.jdk11; })
-    (sbt.override { jre = pkgs.jdk11; })
+    (scala_3.override { jre = pkgs.jdk; })
+    (sbt.override { jre = pkgs.jdk; })
   ];
 }
 
