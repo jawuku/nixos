@@ -9,7 +9,7 @@
       ll = "eza -la --icons";
       lt = "eza --tree --icons";
       cat = "bat";
-      rebuild = "sudo nixos-rebuild switch";
+      rebuild = "sudo nixos-rebuild boot";
       trash-old = "sudo nix-collect-garbage -d";
       update = "sudo nix-channel --update";
       upgrade = "sudo nixos-rebuild boot --upgrade";
