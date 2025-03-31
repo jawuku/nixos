@@ -4,10 +4,6 @@
 {
   home.packages = with pkgs;
     ([
-      # Python
-      pyright
-      black
-      
       # Nix Language Server
       nil
       nixpkgs-fmt
@@ -18,7 +14,7 @@
       # For JVM languages
       clojure-lsp
       clj-kondo
-      (metals.override { jre = pkgs.jdk11; })
+      (metals.override { jre = pkgs.jdk; })
 
       # Supplemental markdown language server to `marksman`
       ltex-ls
