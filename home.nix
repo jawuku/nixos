@@ -27,12 +27,14 @@ in
     fastfetch
     cpufetch
     xclip
-    libsForQt5.falkon
+    epiphany
   ])
 
   # More up-to-date packages from unstable branch
   ++ (with unstable; [
     marksman
+    ruff
+    ruff-lsp
     yt-dlp
   ]);
 
