@@ -1,7 +1,7 @@
 # Openbox configuration for Home Manager
 # try this one to test out new user-defined function
 # and conky
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 let
   nord-openbox-theme = with import <nixpkgs> { }; callPackage ./openbox/nord-openbox-theme.nix { };
   openbox-debian-themes = with import <nixpkgs> { }; callPackage ./openbox/openbox-debian-themes.nix { };
@@ -116,7 +116,10 @@ in
     xidlehook --timer 600 --not-when-fullscreen &
     # mmaker Openbox3 -f -t sakura &
   '';
-  # Remember to download Openbox rc.xml separately i.e.
-  # cd ~/.config/openbox
-  # wget https://raw.githubusercontent.com/jawuku/dotfiles/master/.config/openbox/rc.xml
+
+  # Openbox main configuration file
+  home.file.".config/openbox/rc.xml".source = builtins.fetchurl {
+    url = "https://raw.githubusercontent.com/jawuku/dotfiles/master/.config/openbox/rc.xml";
+    sha256 = lib.fakeHash; # Remember to replace with true hash when building.
+  }; 
 }
